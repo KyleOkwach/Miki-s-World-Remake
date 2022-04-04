@@ -1,0 +1,134 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://art/tiles.png" type="Texture" id=2]
+[ext_resource path="res://Items/Coins/GoldCoin.tscn" type="PackedScene" id=3]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 14, 14, 0, 14, 0, 0, 14, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 14, 14, 0, 14, 0, 0, 14, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 14, 14, 0, 14, 0, 0, 14, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 14, 14, 0, 14, 0, 0, 14, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 14, 14, 0, 14, 0, 0, 14, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 14, 14, 0, 14, 0, 0, 14, 0 )
+
+[sub_resource type="TileSet" id=7]
+1/name = "Platforms"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 126, 42 )
+1/tile_mode = 2
+1/autotile/icon_coordinate = Vector2( 0, 0 )
+1/autotile/tile_size = Vector2( 14, 14 )
+1/autotile/spacing = 0
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [  ]
+1/autotile/priority_map = [  ]
+1/autotile/z_index_map = [  ]
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 1 )
+1/shape_one_way = true
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 5, 0 ),
+"one_way": true,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 1 ),
+"one_way": true,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 2 ),
+"one_way": true,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "GrassPlatform"
+2/texture = ExtResource( 2 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 28, 0, 42, 14 )
+2/tile_mode = 1
+2/autotile/bitmask_mode = 2
+2/autotile/bitmask_flags = [ Vector2( 0, 0 ), 48, Vector2( 1, 0 ), 56, Vector2( 2, 0 ), 24 ]
+2/autotile/icon_coordinate = Vector2( 0, 0 )
+2/autotile/tile_size = Vector2( 14, 14 )
+2/autotile/spacing = 0
+2/autotile/occluder_map = [  ]
+2/autotile/navpoly_map = [  ]
+2/autotile/priority_map = [  ]
+2/autotile/z_index_map = [  ]
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 4 )
+2/shape_one_way = true
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": true,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": true,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": true,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 7 )
+cell_size = Vector2( 14, 14 )
+cell_custom_transform = Transform2D( 14, 0, 0, 14, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 65539, 1, 65540, 65540, 1, 65540, 65541, 1, 65540, 65542, 1, 65540, 196611, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 1, 1, 262147, 0, 0, 262151, 1, 65540, 262152, 1, 65540, 262153, 1, 65540, 262154, 1, 65540, 393215, 0, 0, 327680, 2, 0, 327681, 2, 1, 327682, 2, 1, 327683, 2, 2, 393220, 1, 65540, 393221, 1, 65540, 393222, 1, 65540, 393223, 1, 65540, 458762, 1, 1, 524289, 1, 8, 524290, 1, 65536, 524298, 2, 0, 524299, 2, 1, 524300, 2, 2, 589825, 1, 65537, 589826, 1, 65538, 589830, 1, 1, 720889, 1, 5, 720890, 1, 5, 720891, 1, 5, 720892, 1, 5, 720893, 1, 5, 720894, 1, 5, 720895, 1, 5, 655360, 1, 5, 655361, 1, 5, 655362, 1, 5, 655363, 1, 5, 655364, 1, 5, 655365, 1, 5, 655366, 1, 5, 655367, 1, 5, 655368, 1, 5, 655369, 1, 5, 655370, 1, 5, 655371, 1, 5, 655372, 1, 5, 655373, 1, 5, 655374, 1, 5, 655375, 1, 5, 655376, 1, 5, 655377, 1, 5, 655378, 1, 5, 655379, 1, 5 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 8, 112 )
+
+[node name="GoldCoin" parent="." instance=ExtResource( 3 )]
+position = Vector2( 160, 104 )
+
+[node name="GoldCoin2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 72, 72 )
+
+[node name="GoldCoin3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 96, 72 )
+
+[node name="GoldCoin4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 64, 0 )
+
+[node name="HUD" parent="." instance=ExtResource( 4 )]
