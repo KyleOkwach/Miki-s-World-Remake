@@ -3,7 +3,24 @@
 [ext_resource path="res://art/CoinUi.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/Miki'sFont.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://art/HeartUi.png" type="Texture" id=3]
-[ext_resource path="res://HUD.gd" type="Script" id=4]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends CanvasLayer
+
+#export(NodePath) var player
+var player = load(\"res://Player/Player.tscn\")
+#var player = get_tree(\"Player\")
+
+var max_life = 4
+
+onready var coins = $MarginContainer/CoinContainer/Coins
+onready var health = $MarginContainer/LifeContainer/Health
+
+func _process(delta):
+	#coins.text = player.coins_collected
+	#health.text = player.life
+	pass
+"
 
 [sub_resource type="DynamicFont" id=1]
 size = 8
@@ -12,14 +29,11 @@ font_data = ExtResource( 2 )
 
 [node name="HUD" type="CanvasLayer"]
 follow_viewport_enable = true
-script = ExtResource( 4 )
+script = SubResource( 2 )
 
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 anchor_right = 1.0

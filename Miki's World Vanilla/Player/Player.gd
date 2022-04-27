@@ -15,7 +15,6 @@ export var jumpVelocity:float = ((2.0 * jumpHeight) / jumpTimeToPeak) * -1.0
 export var jumpGravity:float = ((-2.0 * jumpHeight) / jumpTimeToPeak * jumpTimeToPeak) * -1.0
 export var fallGravity:float = ((-2.0 * jumpHeight) / jumpTimeToDescend * jumpTimeToDescend) * -1.0
 
-
 #Onready vars
 onready var sprite = $Sprite
 onready var anims = $AnimationPlayer
@@ -26,9 +25,7 @@ var isJumping = false
 #Game variables
 export(int) var coins_collected
 export(int) var life
-
-#Game signals
-
+var max_health = 4
 
 func _physics_process(delta):
 	var moveX = (Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left"))
@@ -54,9 +51,8 @@ func _physics_process(delta):
 		anims.play("Jump")
 	
 	vel = move_and_slide(vel, Vector2.UP)
-	
-	#Collisions
-	
+
+
 
 func get_gravity() -> float:
 	#If jumping returns jumpGravity and fallGravity while falling
@@ -65,12 +61,6 @@ func get_gravity() -> float:
 func jump():
 	vel.y = jumpVelocity
 
-
-
-
-
-
 func _on_ItemChecker_area_entered(area):
 	if area.is_in_group("GoldCoin"):
 		coins_collected += 1
-		print(coins_collected)
